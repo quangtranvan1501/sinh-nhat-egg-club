@@ -1,0 +1,46 @@
+.background img{
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.dangky{
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 4px 4px 8px rgba(178, 178, 178, 0.5);
+    margin: 10%;
+}
+.thuMoi{
+    padding: 40px;
+}
+.titleDK{
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+nz-date-picker{
+    width: 100%;
+}
+@media screen and (max-width: 768px){
+    .dangky{
+        margin: 5%;
+    }
+    .thuMoi{
+        padding: 20px;
+    }
+    .titleDK{
+        font-size: 20px;
+    } 
+}
+@media screen and (max-width: 576px){
+    .dangky{
+        margin: 2%;
+    }
+    .thuMoi{
+        padding: 10px;
+    }
+    .titleDK{
+        font-size: 16px;
+    }
+    
+}

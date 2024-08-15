@@ -1,0 +1,165 @@
+<!-- <div class="header">
+    <div class="background">
+        <img src="slide1.jpg" alt="">
+    </div>
+    <div>
+        <nz-steps>
+            <nz-step nzTitle="Đăng ký" nzStatus="finish" nzIcon="user"></nz-step>
+            <nz-step nzTitle="Quyên góp" nzStatus="finish" nzIcon="solution"></nz-step>
+            <nz-step nzTitle="Hoàn thành" nzStatus="process" nzIcon="loading"></nz-step>
+            <ng-template #iconTemplate><span nz-icon nzType="smile"></span></ng-template>
+        </nz-steps>
+        <div class="steps-content">
+            <div *ngIf="current === 0">
+                <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                    <nz-form-item>
+                        <nz-form-label [nzSm]="6" [nzXs]="24" ohLabelAlign="left" nzRequired
+                            nzFor="email">E-mail</nz-form-label>
+                        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Email không đúng định dạng!">
+                            <input nz-input formControlName="email" id="email" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+                            Họ và tên
+                        </nz-form-label>
+                        <nz-form-control [nzSm]="14" [nzXs]="24" ohLabelAlign="left"
+                            nzErrorTip="Họ tên không được để trống">
+                            <input nz-input id="nickname" formControlName="nickname" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+                            Gen
+                        </nz-form-label>
+                        <nz-form-control [nzSm]="14" [nzXs]="24" ohLabelAlign="left"
+                            nzErrorTip="Vui lòng chọn gen của bạn">
+                            <nz-select formControlName="gen" nzPlaceHolder="Chọn Gen">
+                                <nz-option *ngFor="let gen of gens" [nzLabel]="gen" [nzValue]="gen"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="nickname" nzRequired>
+                            Ngày sinh
+                        </nz-form-label>
+                        <nz-form-control [nzSm]="14" [nzXs]="24" ohLabelAlign="left"
+                            nzErrorTip="Hãy nhập ngày sinh">
+                            <nz-date-picker formControlName="birthday" nzPlaceHolder="Chọn ngày sinh" nzFormat="dd/mm/yyyy"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item nz-row class="register-area">
+                        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                            <button nz-button nzType="primary">Đăng ký ngay</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+            </div>
+            <div *ngIf="current === 1">
+                <div>
+                    Để sự kiện được 
+                </div>
+            </div>
+        </div>
+        <div class="steps-action">
+            <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+                <span>Previous</span>
+            </button>
+            <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+                <span>Next</span>
+            </button>
+            <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
+                <span>Done</span>
+            </button>
+        </div>
+    </div>
+</div> -->
+
+<div class="dangky">
+    <div nz-row>
+        <div nz-col [nzMd]="12" [nzSm]="0" [nzXs]="0">
+            <div class="background">
+                <img src="slide1.jpg" alt="">
+            </div>
+        </div>
+        <div nz-col [nzMd]="12" [nzSm]="24" [nzXs]="24" class="thuMoi">
+            <div class="titleDK">Đăng ký tham gia sinh nhật EGG Club</div>
+            <div>
+                <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzNoColon >
+                    <div nz-row>
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label ohLabelAlign="left" nzRequired [nzSpan]="8"
+                                    nzFor="email">E-mail</nz-form-label>
+                                <nz-form-control nzErrorTip="Email không đúng định dạng!" [nzSpan]="16">
+                                    <input nz-input formControlName="email" id="email" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label nzFor="nickname" nzRequired [nzSpan]="8">
+                                    Họ và tên
+                                </nz-form-label>
+                                <nz-form-control ohLabelAlign="left"
+                                    nzErrorTip="Họ tên không được để trống" [nzSpan]="16">
+                                    <input nz-input id="name" formControlName="name" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzFor="nickname" nzRequired [nzSpan]="16">
+                                    Gen
+                                </nz-form-label>
+                                <nz-form-control ohLabelAlign="left" [nzSpan]="8"
+                                    nzErrorTip="Vui lòng chọn gen của bạn">
+                                    <nz-select formControlName="gen" nzPlaceHolder="Gen">
+                                        <nz-option *ngFor="let gen of gens" [nzLabel]="gen" [nzValue]="gen"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="12">
+                            <nz-form-item>
+                                <nz-form-label nzFor="nickname" nzRequired [nzSpan]="8">
+                                    Ngày sinh
+                                </nz-form-label>
+                                <nz-form-control ohLabelAlign="left" [nzSpan]="16"
+                                    nzErrorTip="Hãy nhập ngày sinh">
+                                    <nz-date-picker formControlName="birthday" nzPlaceHolder="Chọn ngày sinh" nzFormat="dd/mm/yyyy"></nz-date-picker>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label nzFor="nickname" nzRequired [nzSpan]="8">
+                                    Số điện thoại
+                                </nz-form-label>
+                                <nz-form-control ohLabelAlign="left" [nzSpan]="16"
+                                    nzErrorTip="Hãy nhập SĐT">
+                                    <input nz-input id="phoneNumber" formControlName="phoneNumber" />
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-label nzFor="nickname" nzLabelWrap [nzSpan]="8">
+                                    Bạn có muốn nhắn nhủ gì với EGG Club?
+                                </nz-form-label>
+                                <nz-form-control ohLabelAlign="left" [nzSpan]="16">
+                                    <textarea nz-input id="message" formControlName="message"></textarea>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                    </div>
+                    <nz-form-item nz-row class="register-area">
+                        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+                            <button nz-button nzType="primary">Đăng ký ngay</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
