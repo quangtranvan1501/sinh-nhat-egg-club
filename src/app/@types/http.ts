@@ -11,5 +11,5 @@ export type HttpResponse<T> = {
 export type BodyType<T> = {
     code: number;
     message: string;
-    data: T;
+    data?: T;
 };

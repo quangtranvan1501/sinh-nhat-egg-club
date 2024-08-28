@@ -9,7 +9,8 @@ import { BodyType } from './@types';
 })
 export class AppService {
 
-  private resourceUrl = 'http://localhost:3000/v1';
+  private resourceUrl = 'https://sinh-nhat-egg-club-be.onrender.com/v1';
+  // private resourceUrl = 'http://localhost:3000/v1';
 
   constructor(
     protected http: HttpClient

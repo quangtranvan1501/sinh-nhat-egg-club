@@ -4,12 +4,13 @@
     border-bottom-left-radius: 8px;
 }
 .dangky{
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 4px 4px 8px rgba(178, 178, 178, 0.5);
     margin: 10%;
 }
 .thuMoi{
+    z-index: 1000;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 4px 4px 8px rgba(178, 178, 178, 0.5);
     padding: 40px;
 }
 .titleDK{
@@ -17,13 +18,14 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 20px;
+    color: #0b65f0;
 }
 nz-date-picker{
     width: 100%;
 }
 @media screen and (max-width: 768px){
     .dangky{
-        margin: 5%;
+        margin: 10%;
     }
     .thuMoi{
         padding: 20px;
@@ -34,7 +36,7 @@ nz-date-picker{
 }
 @media screen and (max-width: 576px){
     .dangky{
-        margin: 2%;
+        margin: 10%;
     }
     .thuMoi{
         padding: 10px;
@@ -43,4 +45,18 @@ nz-date-picker{
         font-size: 16px;
     }
     
+}
+::ng-deep nz-form-label{
+    font-size: 18px;
+    font-weight: 700;
+    color: #0b65f0;
+}
+::ng-deep nz-form-label > label{
+    color: #0b65f0 !important;
+}
+.btn_Dk{
+    border-radius: 8px;
+    background: #0b65f0;
+    font-size: 16px;
+    height: auto;
 }

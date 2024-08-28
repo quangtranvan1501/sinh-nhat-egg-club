@@ -9,6 +9,7 @@ import { FormControl, FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFo
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { AppService } from '../../app.service';
+import { NzMessageModule, NzMessageService } from 'ng-zorro-antd/message';
 @Component({
   selector: 'app-welcome',
   standalone: true,
@@ -22,7 +23,8 @@ import { AppService } from '../../app.service';
     NzSelectModule,
     NzDatePickerModule,
     NzInputModule,
-    NzGridModule
+    NzGridModule,
+    NzMessageModule
   ],
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
@@ -42,7 +44,8 @@ export class WelcomeComponent implements OnInit {
 
   constructor(
     private fb: NonNullableFormBuilder,
-    private appService: AppService
+    private appService: AppService,
+    private message: NzMessageService
   ) {
     this.validateForm = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -58,16 +61,32 @@ export class WelcomeComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      const data = {
+      let data: any = {
         email: this.validateForm.value.email,
         phoneNumber: this.validateForm.value.phoneNumber,
         name: this.validateForm.value.name,
         birthday: this.validateForm.value.birthday,
         gen: this.validateForm.value.gen?.toString(),
-        note: this.validateForm.value.message ?? ''
+      };
+  
+      if (this.validateForm.value.message && this.validateForm.value.message.trim() !== "") {
+        data.note = this.validateForm.value.message;
+      } else {
+        data.note = 'Chúc mừng sinh nhật 10 tuổi Egg Club';
       }
+  
+      console.log(data);
       this.appService.post<any, any>(data, '/dangky').subscribe(res => {
-        console.log(res);
+        if(res.body) {
+          if(res.body.code === 201) {
+            this.validateForm.reset();
+            return this.message.success(res.body.message);
+          }
+            return this.message.error('Có lỗi xảy ra, vui lòng xem lại thông tin');
+        }
+        return this.message.error('Có lỗi xảy ra');
+      }, (err) => {
+        return this.message.error(err.error.message);
       }
       );
     } else {
