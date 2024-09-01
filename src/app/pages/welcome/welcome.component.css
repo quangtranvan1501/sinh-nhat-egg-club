@@ -33,6 +33,9 @@ nz-date-picker{
     .titleDK{
         font-size: 20px;
     } 
+    ::ng-deep .ant-form-item{
+        margin-bottom: 10px;
+    }
 }
 @media screen and (max-width: 576px){
     .dangky{
@@ -43,6 +46,9 @@ nz-date-picker{
     }
     .titleDK{
         font-size: 16px;
+    }
+    ::ng-deep .ant-form-item{
+        margin-bottom: 10px;
     }
     
 }
